@@ -6,7 +6,7 @@ import smtplib
 import requests
 import time
 import json
-token = "Seraphine_boneco_de_pagao456"
+token = "GENERIC-APIKEY"
 
 
 def messenger_those(to, names):
