@@ -67,5 +67,4 @@ while True:
                 remind_list.append(updated_list[client]['inqs'][rent]['name'])
                 count_year(client, updated_list[client]['inqs'][rent]['id'])
         messenger_those(updated_list[client]['notify-channel'], remind_list)
-        print('cabo')
     time.sleep(24*60*60)
