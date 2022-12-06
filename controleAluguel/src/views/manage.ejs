@@ -1,0 +1,459 @@
+<style>
+  html {
+    height: 100%;
+    overflow-y: hidden;
+  }
+
+  * {
+    font-size: larger;
+  }
+
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: linear-gradient(45deg, #b7cafe, #4d3199);
+    height: 100vh;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin: 0;
+  }
+
+  tr:nth-child(even) {
+    background-color: #a9bffc;
+  }
+
+  tr:nth-child(odd) {
+    background-color: #9aaee6;
+  }
+
+  tr:nth-child(1) {
+    width: 60%;
+  }
+
+  #content-table td,
+  #content-table th {
+    border: 0px solid #dddddd;
+    text-align: left;
+    padding: 12px 15px;
+  }
+
+  .icon {
+    height: 30px;
+    margin: 0 10px;
+  }
+
+  #content-table {
+    border-collapse: collapse;
+    margin: 45px 0;
+    padding: 0 150px;
+    font-size: 0.7em;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border-radius: 20px 20px 0 0;
+    width: 60%;
+    border-spacing: 0;
+  }
+
+  #content-table thead tr {
+    background-color: #4d3199;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+  }
+
+  #content-table tbody tr {
+    border-left: 1px solid #0000;
+  }
+  #content-table tbody,
+  #content-table thead {
+    display: block;
+  }
+  .group td{
+    text-align: center !important;
+    background-color: #CCD2FE !important;
+  }
+  .icons {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 10%;
+  }
+  #icons {
+    width: 10%;
+  }
+  .data {
+    text-align: center;
+    width: 20%;
+  }
+
+  .nome {
+    width: 70%;
+    text-align: left;
+  }
+
+  #content-table td {
+    height: 70px;
+  }
+
+  #content-table tbody {
+    border-bottom: 10px solid #4d3199;
+  }
+
+  #add {
+    text-align: center;
+    font-size: 22px;
+    border-radius: 30%;
+    height: 30px;
+    width: 30px;
+    background-color: #4d3199;
+  }
+
+  #add:hover {
+    background-color: #4b31cf;
+    cursor: pointer;
+  }
+
+  #caption-button {
+    caption-side: bottom;
+    margin: 10px;
+  }
+
+  #caption-button div {
+    display: flex;
+    justify-content: space-between;
+  }
+  #rents {
+    max-height: 50vh;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  ::-webkit-scrollbar {
+    width: 0.5em;
+  }
+  ::-webkit-scrollbar-track {
+    background: #4d3199;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #4b31cf;
+    border-radius: 100vw;
+  }
+  .icon {
+    transform: scaleX(-1);
+  }
+  .icon:hover {
+    cursor: pointer;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .hiddenTab {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 1em sans-serif;
+  }
+  #editDiv {
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  #addDiv {
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  /* editstyle */
+  #editTab {
+    width: 45vh;
+    height: 53vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #edittab form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: linear-gradient(220deg, #b7cafe, #4d3199);
+    padding: 0;
+    border-radius: 5px;
+    border: 0;
+    margin: 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    color: #332166;
+  }
+
+  .editname {
+    width: 30vh;
+    height: 43px;
+    font-size: large;
+    padding: 1px;
+    border: 0;
+    background-color: rgba(0, 0, 0, 0.01);
+    border-bottom: 2px solid #9aaee6;
+    outline: 0;
+    color: #332166;
+  }
+  .editdate {
+    width: 30vh;
+    height: 45px;
+    margin: 10px 0 0;
+    font-size: large;
+    border: 0;
+    padding: 3px;
+    background-color: rgba(0, 0, 0, 0.01);
+    border-bottom: 2px solid #9aaee6;
+    outline: 0;
+  }
+  .editdate:hover {
+    cursor: text;
+  }
+  /* addstyle */
+  #addtab {
+    width: 45vh;
+    height: 53vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #addtab form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: linear-gradient(220deg, #b7cafe, #4d3199);
+    padding: 0;
+    border-radius: 5px;
+    border: 0;
+    margin: 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    color: #332166;
+  }
+  .addname {
+    width: 30vh;
+    height: 43px;
+    font-size: large;
+    padding: 1px;
+    border: 0;
+    background-color: rgba(0, 0, 0, 0.01);
+    border-bottom: 2px solid #9aaee6;
+    outline: 0;
+    color: #332166;
+  }
+  .adddate {
+    width: 30vh;
+    height: 45px;
+    margin: 10px 0 0;
+    font-size: large;
+    border: 0;
+    padding: 3px;
+    background-color: rgba(0, 0, 0, 0.01);
+    border-bottom: 2px solid #9aaee6;
+    outline: 0;
+  }
+  .adddate:hover {
+    cursor: text;
+  }
+  .aesubmit {
+    padding: 5px;
+    width: 30vh;
+    font-size: 0.6em;
+    background-color: #4d3199;
+    border-radius: 3px;
+    border: 0;
+  }
+  .aesubmit:hover {
+    cursor: pointer;
+    background-color: #4b31cf;
+  }
+  #adddiv label {
+    color: #b7cafe;
+    font-weight: bold;
+    font-size: large;
+  }
+  ::placeholder {
+    color: rgba(0, 0, 0, 0.7);
+  }
+</style>
+<body>
+  <div id="editDiv" class="hiddenTab">
+    <section id="editTab">
+      <form
+        action="/edit"
+        method="post"
+        target="submitter"
+        onsubmit="refresh()"
+      >
+        <h3 style="font-size: 29px">Editar</h3>
+        <div>
+          <input
+            class="editName"
+            type="text"
+            name="rentName"
+            placeholder="Nome"
+          /><br />
+        </div>
+        <div>
+          <input class="editDate" type="date" name="lastPaid" />
+        </div>
+        <br />
+        <input type="hidden" name="id" id="editId" value="" />
+        <input class="aeSubmit" type="submit" value="Confirm" />
+      </form>
+    </section>
+  </div>
+  <div id="addDiv" class="hiddenTab">
+    <section id="addTab">
+      <form
+        action="/add"
+        method="post"
+        target="submitter"
+        autocomplete="off"
+        onsubmit="refresh()"
+      >
+        <h3 style="font-size: 29px">Adicionar</h3>
+        <div>
+          <input
+            class="addName"
+            type="text"
+            name="rentName"
+            placeholder="Nome"
+          /><br />
+        </div>
+        <div>
+          <input class="addDate" type="date" name="lastPaid" />
+        </div>
+        <div>
+          <select class="addDate" name="group">
+            <option value="volvo">Volvo XC90</option>
+            <option value="saab">Saab 95</option>
+            <option value="mercedes">Mercedes SLK</option>
+            <option value="audi">Audi TT</option>
+          </select>
+        </div>
+        <br />
+        <input class="aeSubmit" type="submit" value="Confirm" />
+      </form>
+    </section>
+  </div>
+  <header>
+    <div></div>
+    <h1>Lembrete de cobranças</h1>
+    <img class="icon" src="./assets/img/logout.svg" alt="" onclick="logout()" />
+  </header>
+
+  <table id="content-table">
+    <caption id="caption-button">
+      <div>
+        <button id="add">+</button>
+      </div>
+    </caption>
+    <thead>
+      <tr>
+        <th class="nome">Nome</th>
+        <th class="data">Data</th>
+        <th id="icons">Opções</th>
+      </tr>
+    </thead>
+    <tbody id="rents">
+      <% for (let group in groups) { %>
+        <tr class="group">
+          <td colspan="3"><%= group %> </td>
+        </tr>
+        <% inqs = groups[group] %> 
+        <% for( let inq in inqs ) { %>
+          <tr class="rent" data-id="<%= inqs[inq]['id'] %>">
+            <td class="nome"><%= inqs[inq]['name'] %></td>
+            <td class="data">
+              <%= inqs[inq]['last-paid'].split('T')[0] %>
+            </td>
+            <td class="icons">
+              <img class="icon trashcan" src="/assets/img/trashcan.svg" alt="" />
+              <img class="icon edit" src="/assets/img/edit.svg" alt="" />
+            </td>
+          </tr>
+          <% } %>
+      <% } %> 
+      
+    </tbody>
+  </table>
+  <iframe name="submitter" style="display: none"></iframe>
+</body>
+
+<script>
+  function addView(e) {
+    document.querySelector("#addDiv").style.visibility = "visible";
+  }
+
+  function editMe(e) {
+    if (e.target.tagName != "IMG") {
+      return false;
+    }
+    myName = e.target.parentNode.parentNode.querySelector(".nome").innerText;
+    myId = e.target.parentNode.parentNode.getAttribute("data-id");
+    console.log(myId);
+    document.querySelector("#editDiv").style.visibility = "visible";
+    document.querySelector(".editName").setAttribute("placeholder", myName);
+    document.querySelector("#editId").setAttribute("value", myId);
+  }
+  function deleteMe(e) {
+    const father = e.target.parentNode.parentNode;
+    const yes = window.confirm(
+      `Realmente deseja excluir "${father.querySelector(".nome").innerText}"?`
+    );
+    if (yes) {
+      const Http = new XMLHttpRequest();
+      const url = `/delete-rent/?id=${father.getAttribute("data-id")}`;
+      Http.open("GET", url);
+      Http.send();
+      Http.onreadystatechange = (e) => {
+        refresh();
+      };
+    } else {
+      return false;
+    }
+  }
+  function hideMyself(e) {
+    if (e.target.getAttribute("class") == "hiddenTab") {
+      e.target.style.visibility = "hidden";
+    }
+  }
+  function refresh() {
+    window.location.href = "/";
+  }
+</script>
+<script>
+  document.querySelectorAll(".edit").forEach((element) => {
+    element.addEventListener("click", editMe);
+  });
+  document.querySelectorAll(".trashcan").forEach((element) => {
+    element.addEventListener("click", deleteMe);
+  });
+  document.querySelector("#editDiv").addEventListener("click", hideMyself);
+  document.querySelector("#addDiv").addEventListener("click", hideMyself);
+  document.querySelector("#add").addEventListener("click", addView);
+</script>
+<script>
+  function logout() {
+    const Http = new XMLHttpRequest();
+    const url = "/logout";
+    Http.open("GET", url);
+    Http.send();
+    Http.onreadystatechange = (e) => {
+      window.location.href = "/";
+    };
+  }
+</script>

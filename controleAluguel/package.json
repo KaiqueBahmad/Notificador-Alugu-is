@@ -1,0 +1,19 @@
+{
+  "name": "controlealuguel",
+  "version": "1.0.0",
+  "description": "lembrar e notificar alugueis",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kaique Bahmad",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "crypto-js": "^4.1.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20",
+    "uuid": "^9.0.0"
+  }
+}
