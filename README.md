@@ -1,3 +1,4 @@
+# Notificador-Aluguéis
 A pasta /alarmeEmail, é o script em Python que irá alertar caso algum contrato expire;
 A pasta /controleAluguel, é o site onde se registra os contratos, a senha padrão é username -> Admin, senha -> senha123;
 
