@@ -1,2 +1,2 @@
-my_pass = 'nqqxtuecvecdwxvu'
-my_email = 'pythonbotmail1@gmail.com'
+my_pass = 'YOUR_PASSWORD'
+my_email = 'YOUR@BOT.EMAIL'
