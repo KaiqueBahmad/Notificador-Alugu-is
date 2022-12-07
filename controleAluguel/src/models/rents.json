@@ -1,1 +1,7 @@
-{"admin":{"password":"U2FsdGVkX19+rd1seAWvOGBpDyYQ+Dt3Es8T/fyS/Ps=","notify-channel":"","inqs":{}}}}
+{"admin":
+  {"password":"U2FsdGVkX19+rd1seAWvOGBpDyYQ+Dt3Es8T/fyS/Ps=",
+   "notify-channel":"",
+   "inqs":{
+   }
+  }
+}
