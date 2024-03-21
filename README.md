@@ -4,4 +4,4 @@ A pasta /controleAluguel, é o site onde se registra os contratos, a senha padr�
 
 Para rodar o site, o script em python deve estar sendo executado, caso contrário você não será notificado, você deve também inserir suas
 credências SMTP no arquivo "acc.py", para que o bot envie os emails corretamente, depois disso:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Use o comando "node /.", na pasta /controleAluguel, e o site estará disponível.
+&nbsp;&nbsp;&nbsp;&nbsp;Use o comando "node index.js", na pasta /controleAluguel, e o site estará disponível.
